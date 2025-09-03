@@ -14,3 +14,20 @@ jobs:
 
     # The steps that will be executed in the job
     steps: 
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t my-app:latest ./api #funkar på samma sätt som det vi skriver i terminalen# 
+        # version (my-app:latest) är inte ett måste men bra att ha med så skapas nya images per version #
+        #t.ex. my-app:1.0, my-app:1.2 osv. #
+        #går nåt snett med den senaste imagen så har vi versioner sparade att kolla bakåt i vad som gick fel#
+        #latest används aldrig i produktionsmiljö"
+      
+      - name: Run tests
+        run: docker run --rm my-api:latest npm test # --rm gör så att containern raderas efter testet körs oavasett lyckas eller misslyckas#
+        #varför ta bort? om vi kör ganska tunga tester och inte tar bort dessa utan fortsatt pipelinen i flera steg så blir det långsammare #
+        # det enda syftet var att testa, så resurser ska inte gå åt att låta testerna finnas kvar då man bara villveta hur de gick#
+
+##test###
