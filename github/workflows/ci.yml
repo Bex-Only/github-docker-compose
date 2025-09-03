@@ -1,0 +1,16 @@
+name: Build and Test
+
+# This workflow is triggered whenever a pull request is made to the "dev" branch
+on: 
+  pull_request: 
+    branches:
+      - dev
+
+# The workflow consists of one job
+jobs:
+  build-and-test:
+    # The job will run on an virtual machine with the latest Ubuntu image
+    runs-on: ubuntu-latest
+
+    # The steps that will be executed in the job
+    steps: 
