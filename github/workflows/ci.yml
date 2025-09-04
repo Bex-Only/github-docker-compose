@@ -29,5 +29,20 @@ jobs:
         run: docker run --rm my-api:latest npm test # --rm gör så att containern raderas efter testet körs oavasett lyckas eller misslyckas#
         #varför ta bort? om vi kör ganska tunga tester och inte tar bort dessa utan fortsatt pipelinen i flera steg så blir det långsammare #
         # det enda syftet var att testa, så resurser ska inte gå åt att låta testerna finnas kvar då man bara villveta hur de gick#
+build-frontend:
+  runs-on: ubuntu-latest
 
-##test###
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install depend and build frontend
+      run: 
+        cd frontend
+        npm install 
+        npm run build
+
+    - name: Build frontend image
+      run: docker build -t my-frontend:latest ./frontend
+
+        #slut på genomgång onsdag#
