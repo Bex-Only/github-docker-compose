@@ -1,5 +1,19 @@
-const express = require('express');
-const { Pool } = require('pg');
+import express from "express";
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get("/", (req, res) => {
+  res.send("Hello from TypeScript API!");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+
+/* import express from 'express';
+import { Pool } from 'pg';
 const app = express();
 const port = 3000;
 
@@ -37,4 +51,4 @@ app.post('/api/data', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`API is running on http://localhost:${port}`);
-});
+}); */

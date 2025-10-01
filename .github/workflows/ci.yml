@@ -40,20 +40,20 @@ jobs:
         run: docker tag my-api:latest ${{ secrets.DOCKER_USERNAME }}/my-api:latest # bra att använda dynamisk variabel för att man ska kunna byta konton genom att ändra secret direkt, slipper arbeta dubbelt och ändra i pipelinen 
 
 
-build-frontend:
-  runs-on: ubuntu-latest
+  build-frontend:
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Install depend and build frontend
-      run: 
-        cd frontend
-        npm install 
-        npm run build
+      - name: Install depend and build frontend
+        run: 
+          cd frontend
+          npm install 
+          npm run build
 
-    - name: Build frontend image
-      run: docker build -t my-frontend:latest ./frontend
+      - name: Build frontend image
+        run: docker build -t my-frontend:latest ./frontend
 
-        #slut på genomgång onsdag#
+          #slut på genomgång onsdag#
