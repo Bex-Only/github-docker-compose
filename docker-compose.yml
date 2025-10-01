@@ -16,7 +16,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      DATABASE_URL: postgres://postgres:my-secret-pw@db:5432/my_database
+      DATABASE_URL: postgres://postgres:my-secret-pw@db:5432/my-api
     depends_on:
       - db
 
