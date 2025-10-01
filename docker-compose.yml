@@ -1,14 +1,16 @@
-services: 
+version: "3.9"
+
+services:
   db:
     image: postgres:14-alpine
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: "my-secret-pw"
-      POSTGRES_DB: "my_database"
+      POSTGRES_PASSWORD: my-secret-pw
+      POSTGRES_DB: my_database
     volumes:
       - ./db:/docker-entrypoint-initdb.d
       - db-data:/var/lib/postgresql/data
-    
+
   api:
     build: ./api
     ports:
