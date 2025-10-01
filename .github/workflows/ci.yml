@@ -49,8 +49,8 @@ jobs:
 
       - name: Install depend and build frontend
         run: 
-          cd frontend
-          npm install 
+          cd frontend &&
+          npm install &&
           npm run build
 
       - name: Build frontend image
