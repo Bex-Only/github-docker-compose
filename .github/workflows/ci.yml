@@ -20,19 +20,19 @@ jobs:
 
       # 2️⃣ Verify Docker Compose is installed
       - name: Set up Docker Compose
-        run: docker-compose --version
+        run: docker compose --version
 
       # 3️⃣ Build all services defined in docker-compose.yml
       - name: Build Docker services
-        run: docker-compose build
+        run: docker compose build
 
       # 4️⃣ Run backend tests inside API service
       - name: Run API tests
-        run: docker-compose run --rm api npm test
+        run: docker compose run --rm api npm test
 
       # 5️⃣ Build frontend image (production)
       - name: Build frontend image
-        run: docker-compose build frontend
+        run: docker compose build frontend
 
       # 6️⃣ Log in to Docker Hub (optional, for pushing images)
       - name: Log in to Docker Hub
@@ -43,7 +43,7 @@ jobs:
 
       # 7️⃣ Push backend and frontend images (optional)
       - name: Push backend image
-        run: docker-compose push api
+        run: docker compose push api
 
       - name: Push frontend image
-        run: docker-compose push frontend
+        run: docker compose push frontend
