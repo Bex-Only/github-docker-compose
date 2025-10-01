@@ -36,6 +36,7 @@ function App() {
       <p id="api-message">{apiMessage}</p>
       <button onClick={saveData}>Skicka data till API</button>
       <p id="status-message">{statusMessage}</p>
+      <button onClick={() => setStatusMessage('')}>Rensa statusmeddelande</button>
     </div>
   );
 }
