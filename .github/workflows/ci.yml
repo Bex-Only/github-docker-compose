@@ -12,6 +12,8 @@ jobs:
   build-and-test:
     # The job will run on an virtual machine with the latest Ubuntu image
     runs-on: ubuntu-latest
+    #container: #if not using docker, the job will run on an virtual machine with the latest Ubuntu image in a container 
+        #image: node:20-alpine #minimal docker image
 
     # The steps that will be executed in the job
     steps:
@@ -26,8 +28,11 @@ jobs:
         run: docker compose version
 
       # Check which branch is being built
-      - name: Check Branch NU BORDE DETTA SYNAS IGEN?
-        run: echo ${{ github.ref }}
+      - name: Show branch name
+        run: | 
+            echo "Ref: ${{ github.ref }}"
+            echo "Head ref: ${{ github.head_ref }}"
+            echo "Ref name:${{ github.ref_name }}"
 
       # 3️⃣ Build API in the build stage for testing (devDependencies included)
       - name: Build API for tests
