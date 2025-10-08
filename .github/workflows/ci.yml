@@ -12,8 +12,8 @@ jobs:
   build-and-test:
     # The job will run on an virtual machine with the latest Ubuntu image
     runs-on: ubuntu-latest
-    container:
-        image: node:20-alpine
+    #container: #if not using docker, the job will run on an virtual machine with the latest Ubuntu image in a container 
+        #image: node:20-alpine #minimal docker image
 
     # The steps that will be executed in the job
     steps:
