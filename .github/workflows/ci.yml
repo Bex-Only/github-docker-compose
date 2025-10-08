@@ -25,7 +25,7 @@ jobs:
         run: docker compose version
 
       # Check which branch is being built
-      - name: Check Branch
+      - name: Check Branch NU BORDE DETTA SYNAS
         run: echo ${{ github.ref }}
 
       # 3️⃣ Build API in the build stage for testing (devDependencies included)
