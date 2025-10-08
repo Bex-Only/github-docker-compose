@@ -4,7 +4,7 @@ name: Build, Test & Docker
 on: 
   pull_request: 
     branches:
-      - dev
+      - main
 
 # The workflow consists of one job
 jobs:
@@ -24,13 +24,17 @@ jobs:
       - name: Check Docker Compose Version
         run: docker compose version
 
+      # Check which branch is being built
+      - name: Check Branch
+        run: echo ${{ github.ref }}
+
       # 3️⃣ Build API in the build stage for testing (devDependencies included)
       - name: Build API for tests
         run: docker build --target build -t my-api-test ./api
 
       # 4️⃣ Run API tests inside the build-stage container
       - name: Run API tests
-        run: docker run --rm my-api-test npm test
+        run: docker run --rm my-api-test npm test ## ---rm gör att containern raderas efter testet körs oavasett lyckas eller misslyckas
 
       # 5️⃣ Build API production image (without devDependencies)
       - name: Build API production image
