@@ -5,6 +5,7 @@ on:
   pull_request: 
     branches:
       - main
+      - dev
 
 # The workflow consists of one job
 jobs:
@@ -25,7 +26,7 @@ jobs:
         run: docker compose version
 
       # Check which branch is being built
-      - name: Check Branch NU BORDE DETTA SYNAS
+      - name: Check Branch NU BORDE DETTA SYNAS IGEN?
         run: echo ${{ github.ref }}
 
       # 3️⃣ Build API in the build stage for testing (devDependencies included)
