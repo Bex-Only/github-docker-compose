@@ -5,6 +5,7 @@ on:
   pull_request: 
     branches:
       - main
+      - dev
 
 # The workflow consists of one job
 jobs:
